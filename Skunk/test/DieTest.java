@@ -13,7 +13,7 @@ public class DieTest {
 		
 	}
 
-	//@Test
+	@Test
 	public void testSetLastRoll() {
 		
 	    die.setLastRoll(5);
@@ -21,7 +21,7 @@ public class DieTest {
 		}
 	
 
-	//@Test
+	@Test
 	public void testRoll() {
 
     int playNum = 2;
