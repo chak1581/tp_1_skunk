@@ -9,8 +9,6 @@ public class Dice {
 
 	public Dice()
 	{
-		this.die1 = new Die();
-		this.die2 = new Die();
 		this.roll();
 	}
 
@@ -28,8 +26,8 @@ public class Dice {
 
 	public void roll()
 	{
-		die1.roll(trial);
-		die2.roll(trial);
+		die1.roll();
+		die2.roll();
 		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
 		totalPerRoll = this.lastRoll;
 	}
