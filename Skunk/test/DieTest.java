@@ -21,11 +21,16 @@ public class DieTest {
 		assertEquals(6, die.getLastRoll());
 	}
 
+<<<<<<< HEAD
 	// @Test(expected=NullPointerException.class)
 	public void test_nullDie() {
 		Die die = new Die(new int[] { 6 });
 		assertEquals(6, die.getLastRoll());
 	}
+=======
+	@Test
+	public void testRoll() {
+>>>>>>> branch 'master' of https://github.com/chak1581/tp_1_skunk.git
 
 	@Test
 	public void testRoll_one_value() {
