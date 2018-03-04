@@ -1,9 +1,28 @@
+
 public class Player {
+	
 
 	String name;
 	int score;
 	int chip;
+	boolean lostChance = false;
+	boolean denyTurn = false;
 
+	public boolean isDenyTurn() {
+		return denyTurn;
+	}
+
+
+	public void setDenyTurn(boolean denyTurn) {
+		this.denyTurn = denyTurn;
+	}
+
+
+	public Player() {
+		
+		
+	}
+	
 
 	public Player(String name, int score, int chip) {
 		this.name = name;
@@ -45,6 +64,13 @@ public class Player {
 		this.chip = chip;
 	}
 
+	public boolean getLostChance() {
+		return lostChance;
+	}
+
+	public void setLostChance(boolean lostChance) {
+		this.lostChance = lostChance;
+	}
 	public boolean isTwoPlayers(Player secondPlayer) {
 		if (!name.equals(secondPlayer.name)) {
 			return true;
@@ -53,6 +79,6 @@ public class Player {
 	}
 
 	public String toString() {
-		return "Name: " + this.name + " , Score: " + this.score + " , Chip: " + this.chip;
+		return "Player Name: " + this.name + " , Total Score: " + this.score + " , Total Chip: " + this.chip;
 	}
 }

@@ -1,40 +1,55 @@
 
 public class Die {
-
+	
 	private int lastRoll;
-	private int[] dieValues = new int[] { 3, 4, 6, 2, 5, 1 };
-	private int nextPos;
-
-	public Die(int[] values) {
-		dieValues = values;
+	int [] dieValues = new int[6];
+	
+	public int[] getDieValues() {
+		return dieValues;
 	}
 
-	public int getLastRoll() {
+	public void setDieValues(int[] dieValues) {
+		this.dieValues = dieValues;
+	}
+
+	public Die()
+	{
+		
+	}
+
+	public Die(int[] values) 
+	{
+		setDieValues(values);
+	}
+
+	public int getLastRoll() 
+	{
 
 		return this.lastRoll;
 	}
 
-	protected void setLastRoll(int lastRoll) {
+	
+	protected void setLastRoll(int lastRoll) 
+	{
 		this.lastRoll = lastRoll;
 	}
 
-	public void roll() {
-		// setLastRoll((int) (Math.random() * 6 + 1));
-
-		int rollValue = dieValues[nextPos];
-		setLastRoll(rollValue);
-		nextPos++;
+	public  void roll() 
+	{
+		setLastRoll((int) (Math.random() * 6 + 1));
+		
+	}
+	
+	public  void roll(int turn) 
+	{		
+		if(turn >6)
+		{
+			int divisor = turn/6;
+			turn = turn-(divisor*6);
+		}
+			
+		setLastRoll(dieValues[turn-1]);
+		
 	}
 
-	/*
-	 * @Override public String toString() { return "A Die object with roll " +
-	 * this.getLastRoll();
-	 * 
-	 * 
-	 * }
-	 */
-
-	/*
-	 * public String toString(int msg) { return msg + this.toString(); }
-	 */
 }

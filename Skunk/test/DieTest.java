@@ -1,43 +1,92 @@
-
 import static org.junit.Assert.*;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
+//import Chap1.Dice;
+
 public class DieTest {
 
-	// Die die = new Die();
+	Die die;
+	int turn;
+	int[] values;
+	
 	@Test
 	public void testGetLastRoll() {
-		Die die = new Die(new int[] { 1, 2, 3 });
-		die.roll();
-		assertEquals(1, die.getLastRoll());
-
+		
+		die = new Die();
+		die.setLastRoll(5);
+		assertEquals(5, die.getLastRoll());
+		
 	}
 
 	@Test
 	public void testSetLastRoll() {
-		Die die = new Die(new int[] { 6 });
-		die.roll();
-		assertEquals(6, die.getLastRoll());
-	}
-
-<<<<<<< HEAD
-	// @Test(expected=NullPointerException.class)
-	public void test_nullDie() {
-		Die die = new Die(new int[] { 6 });
-		assertEquals(6, die.getLastRoll());
-	}
-=======
-	@Test
-	public void testRoll() {
->>>>>>> branch 'master' of https://github.com/chak1581/tp_1_skunk.git
+		
+		die = new Die();
+	    die.setLastRoll(5);
+		assertEquals(5, die.getLastRoll());
+		}
+	
 
 	@Test
-	public void testRoll_one_value() {
-		Die die = new Die(new int[] { 6 });
-		die.roll();
-		assertEquals(6, die.getLastRoll());
+	public void testRoll_1() {
 
+	values = new int[]{1,2,3,4,5,6};
+	die = new Die(values);
+    turn = 1;
+    die.roll(turn);
+    
+    assertEquals(1, die.getLastRoll());
+    
+		
+	}
+	
+	@Test
+	public void testRoll_2() {
+
+	values = new int[]{1,2,3,4,5,6};
+	die = new Die(values);
+    turn = 6;
+    die.roll(turn);
+    
+    assertEquals(6, die.getLastRoll());
+    
+		
+	}
+	
+	@Test
+	public void testRoll_3() {
+
+	values = new int[]{1,2,3,4,5,6};
+	die = new Die(values);
+    turn = 9;
+    die.roll(turn);
+    
+    assertEquals(3, die.getLastRoll());
+    
+		
+	}
+
+	@Test
+	public void testRoll_4() {
+
+	values = new int[]{1,2,3,4,5,6};
+	die = new Die(values);
+    turn = 22;
+    die.roll(turn);
+    
+    assertEquals(4, die.getLastRoll());
+    
+		
+	}
+	@ Test(expected=RuntimeException.class)
+	public void testRoll_5() {
+		values = new int[] {1,2,3,4,5,6};
+		die = new Die(values);
+		turn = 0;
+		die.roll(turn);
+		assertEquals(0,die.getLastRoll());
 	}
 
 }
