@@ -78,7 +78,7 @@ public class SkunkApp {
 			System.out.println("====================Game End======================\n WINNER: PLAYER ONE");
 		}else if(playerTwo.getScore() >=100)
 		{
-			System.out.println("====================Game End======================\n WINNER: PLAYER ONE");
+			System.out.println("====================Game End======================\n WINNER: PLAYER TWO");
 		}else {
 			
 		}
