@@ -34,7 +34,9 @@ public class Dice {
 		die1.roll();
 		die2.roll();
 		lastRoll = die1.getLastRoll() + die2.getLastRoll();
+		System.out.println("***********");
 		System.out.println("Dice Roll " + getLastRoll());
+		System.out.println("***********");
 
 		if ((die1.getLastRoll() == 1 && die2.getLastRoll() == 2)
 				|| (die1.getLastRoll() == 2 && die2.getLastRoll() == 1)) {

@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 
 public class SkunkRules {
 
@@ -40,11 +41,64 @@ public class SkunkRules {
 	
 	public void setPlayersRank(Player[] player,int noOfPlayers) {
 		
+		
 		Arrays.sort(player);
 		for(int i=0;i<noOfPlayers;i++)
 		{
 				player[i].setRank(i);;
 				
+			
+		}
+	}
+	
+	public boolean allPlayersScoreZero(Player[] player,int noOfPlayers)
+	{
+		int count = 0;
+		for(int i=0;i<noOfPlayers;i++)
+		{
+				if(player[i].getScore() == 0)
+					count += 1;
+				
+			
+		}
+		
+		if(count == noOfPlayers)
+			return true;
+		else
+			return false;
+	}
+	
+	public void displaySummary(List matches,Game game)
+	{
+		
+		for(int i =0;i<matches.size();i++)
+		{
+			System.out.println("**************");
+			Match match = (Match)matches.get(i);
+			System.out.println("Match # "+match.matchNo);
+			System.out.println("**************");
+			System.out.println("Chips in Kitty :"+game.getChipsInKitty());
+			//Player[] players = match.getPlayer();
+			List<Player> playerList = match.getPlayerList();
+			/*for(int j=0;j<players.length;j++)
+			{
+				
+		System.out.println(players[j].toString());
+			}*/
+			
+			for(int j=0;j<playerList.size();j++) {
+				System.out.println(playerList.get(j).toString());
+			}
+		}
+	}
+	
+	public void resetFlags(Player[] player,int noOfPlayers) {
+		
+		for(int i=0;i<noOfPlayers;i++)
+		{
+				player[i].setRank(0);
+				player[i].setDonePlaying(false);
+				player[i].setScore(0);
 			
 		}
 	}

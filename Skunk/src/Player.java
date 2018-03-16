@@ -7,6 +7,17 @@ public class Player implements Comparable<Player>{
 	int chip;
 	boolean isDonePlaying;
 	int rank;
+	int gameNo;
+
+	public int getGameNo() {
+		return gameNo;
+	}
+
+
+	public void setGameNo(int gameNo) {
+		this.gameNo = gameNo;
+	}
+
 
 	public int getRank() {
 		return rank;
@@ -79,9 +90,19 @@ public class Player implements Comparable<Player>{
 		return "Name: " + this.name + " , Score: " + this.score + " , Chip: " + this.chip + " , Rank: "+(this.rank+1);
 	}
 	
+	public String displayRoundScore() {
+		return "Name: " + this.name + " , Score: " + this.score + " , Chip: " + this.chip;
+	}
+	
 	@Override
 	public int compareTo(Player comparePlayer) {
-		int compareScore = ((Player) comparePlayer).getScore();
-		return  compareScore - this.score;
+		
+		if(this.gameNo == 1) {
+			int compareScore = ((Player) comparePlayer).getScore();
+			return  compareScore - this.score;
+		}else {
+			int compareChips = ((Player) comparePlayer).getChip();
+			return  compareChips - this.chip;
+		}
 	}
 }
