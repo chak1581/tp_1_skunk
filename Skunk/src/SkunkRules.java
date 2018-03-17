@@ -8,7 +8,7 @@ public class SkunkRules {
 	public void displayRules() {
 		//System.out.println("Google it ;)");
 		
-		System.out.println("Skunk - Game Rules\r\n" + 
+		System.out.println("=========================Skunk - Game Rules=========================" + 
 				"\r\n" + 
 				"\r\n" + 
 				"•	This game could be played by 2 to 8 players.\r\n" + 
@@ -26,7 +26,7 @@ public class SkunkRules {
 				"•	The player with the highest score wins the game and gets all the remaining chips from the kitty, as well as 5 chips from the losing player and 10 chips from player with the score of 0.\r\n" + 
 				"\r\n" + 
 				"\r\n" + 
-				"Penalties\r\n" + 
+				"==============================Penalties==============================" + 
 				"\r\n" + 
 				"•	A skunk in any series voids the score for that series only and draws a penalty of 1 chip placed in the \"kitty,\" and loss of dice.\r\n" + 
 				"\r\n" + 
@@ -73,10 +73,10 @@ public class SkunkRules {
 		
 		for(int i =0;i<matches.size();i++)
 		{
-			System.out.println("**************");
+			System.out.println("**********************");
 			Match match = (Match)matches.get(i);
-			System.out.println("Match # "+match.matchNo);
-			System.out.println("**************");
+			System.out.println("<<<<<<Match # "+match.matchNo+">>>>>>");
+			System.out.println("**********************");
 			System.out.println("Chips in Kitty :"+game.getChipsInKitty());
 			//Player[] players = match.getPlayer();
 			List<Player> playerList = match.getPlayerList();
