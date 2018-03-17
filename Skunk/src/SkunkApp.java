@@ -9,7 +9,6 @@ import java.util.Scanner;
  * 
  */
 public class SkunkApp {
-
 	/**
 	 * 
 	 * This is the main presentation logic for the game. It displays the necessary
@@ -29,7 +28,7 @@ public class SkunkApp {
 			System.out.print("[Please enter your choice]: ");
 			option = input.nextInt();
 			if (option == 1) {
-				System.out.println("\nEnter number of players:");
+				System.out.print("\n[Enter number of players]:");
 				Scanner reader = new Scanner(System.in);
 				int gameNo = 0;
 				int noOfPlayers = 0;
@@ -49,7 +48,7 @@ public class SkunkApp {
 						 */
 						Player players[] = new Player[noOfPlayers];
 						for (int i = 0; i < noOfPlayers; i++) {
-							System.out.println("\nEnter the name of player# " + (i + 1) + ":");
+							System.out.print("\n[Enter the name of player# " + (i + 1) + "]:");
 							players[i] = new Player(reader.next(), 0, 50);
 						}
 						skunkDisplayRules(reader, skunkRules);
@@ -119,10 +118,14 @@ public class SkunkApp {
 									 */
 									if (players[i].getScore() >= 100 && !anyoneScoredHundred) {
 										anyoneScoredHundred = true;
-										System.out.println("<<<<<<<<<<<<Congratulations " + players[i].getName()
-												+ "!!! You're the 1st one to reach 100+>>>>>>>>>>>>");
 										System.out.println(
-												"<<<<<<Rest of the players have only 1 attempt to match the highest score>>>>>>");
+												"*^O^*===*^O^*====*^O^*====*^O^*====*^O^*====*^O^*====*^O^*====*^O^*");
+										System.out.println("    Congratulations " + players[i].getName()
+												+ "!!! You're the 1st one to reach 100+");
+										System.out.println(
+												"Rest of the players have only 1 attempt to match the highest score");
+										System.out.println(
+												"*^O^*===*^O^*====*^O^*====*^O^*====*^O^*====*^O^*====*^O^*====*^O^*");
 										numberOfChances++;
 										players[i].setDonePlaying(true);
 									}
@@ -153,11 +156,12 @@ public class SkunkApp {
 							wantToPlay = playMultipleGame(reader, noOfPlayers, skunkRules, players, wantToPlay);
 
 						}
-						System.out.println("\n****Match Summary****\n");
+						System.out.println("\n****Match Summary*****\n");
 						skunkRules.displaySummary(matches, game);
-						System.out.println("******************************End of Game******************************\n");
+						System.out.println("******************************End of Game******************************");
 						System.out.println("****************Thank you for playing Skunk Game***********************\n"
 								+ "********************************************Ipshita & Shanqi***********");
+						break a;
 					} else {
 						System.out.println("<<Minimum 2 players and Maximum 8 players.Please start over.>>\n");
 						break b;
@@ -168,14 +172,14 @@ public class SkunkApp {
 						+ "********************************************Ipshita & Shanqi***********");
 				break a;
 			} else {
-				System.out.println("Please enter either 1 or 2!");
+				System.out.println("*********Please enter either 1 or 2 for your choice*********\n");
 			}
 		}
 	}
 
 	private static boolean playMultipleGame(Scanner reader, int noOfPlayers, SkunkRules skunkRules, Player[] players,
 			boolean wantToPlay) {
-		System.out.println("\n\n\nWant to play again? Y/N: ");
+		System.out.print("\n\n\n[Want to play again? Y/N]: ");
 		if (!("Y".equalsIgnoreCase(reader.next()))) {
 			wantToPlay = false;
 		} else {
@@ -185,11 +189,11 @@ public class SkunkApp {
 	}
 
 	private static void skunkDisplayRules(Scanner reader, SkunkRules skunkRules) {
-		System.out.println("\nDo you want to see the rules of Skunk? Y/N :");
+		System.out.print("\n[Do you want to see the rules of Skunk? Y/N]:");
 		if ("Y".equalsIgnoreCase(reader.next()))
 			skunkRules.displayRules();
 		else
-			System.out.println("All right!!! Let's begin");
+			System.out.println("\nAll right!!! Let's begin");
 		System.out.println("Initializng...");
 		System.out.println("\nTotal chips in Kitty : 400");
 	}

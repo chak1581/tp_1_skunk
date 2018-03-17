@@ -11,7 +11,4 @@ public class Round {
 		return turn;
 	}
 
-	
-
-	
 }

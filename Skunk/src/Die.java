@@ -1,9 +1,9 @@
 
 public class Die {
-	
+
 	private int lastRoll;
-	int [] dieValues = new int[6];
-	
+	int[] dieValues = new int[6];
+
 	public int[] getDieValues() {
 		return dieValues;
 	}
@@ -12,45 +12,37 @@ public class Die {
 		this.dieValues = dieValues;
 	}
 
-	public Die()
-	{
-		
+	public Die() {
+
 	}
 
-	public Die(int[] values) 
-	{
+	public Die(int[] values) {
 		setDieValues(values);
 	}
 
-	public int getLastRoll() 
-	{
+	public int getLastRoll() {
 
 		return this.lastRoll;
 	}
 
-	
-	protected void setLastRoll(int lastRoll) 
-	{
+	protected void setLastRoll(int lastRoll) {
 		this.lastRoll = lastRoll;
 	}
 
-	public  void roll() 
-	{
+	public void roll() {
 		setLastRoll((int) (Math.random() * 6 + 1));
 		System.out.println("***********");
-		System.out.println("Die Roll "+getLastRoll());
+		System.out.println("Die Roll " + getLastRoll());
 	}
-	
-	public  void roll(int turn) 
-	{		
-		if(turn >6)
-		{
-			int divisor = turn/6;
-			turn = turn-(divisor*6);
+
+	public void roll(int turn) {
+		if (turn > 6) {
+			int divisor = turn / 6;
+			turn = turn - (divisor * 6);
 		}
-			
-		setLastRoll(dieValues[turn-1]);
-		
+
+		setLastRoll(dieValues[turn - 1]);
+
 	}
 
 }

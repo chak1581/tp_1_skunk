@@ -7,30 +7,24 @@ public class Dice {
 	boolean singleSkunk;
 	boolean skunkAndDeuce;
 	boolean doubleSkunk;
-	    
-	public Dice()
-	{
+
+	public Dice() {
 
 		die1 = new Die();
 		die2 = new Die();
-		//player = new Player();
+		// player = new Player();
 	}
-	
-	
-	public Dice(Die die1, Die die2) 
-	{
+
+	public Dice(Die die1, Die die2) {
 		this.die1 = die1;
 		this.die2 = die2;
 	}
 
-
-	public int getLastRoll()
-	{
+	public int getLastRoll() {
 		return this.lastRoll;
 	}
 
-	public void roll()
-	{
+	public void roll() {
 		die1.roll();
 		die2.roll();
 		lastRoll = die1.getLastRoll() + die2.getLastRoll();
@@ -65,9 +59,8 @@ public class Dice {
 
 		}
 	}
-		
-	public void roll(int turn)
-	{
+
+	public void roll(int turn) {
 		die1.roll(turn);
 		die2.roll(turn);
 		lastRoll = die1.getLastRoll() + die2.getLastRoll();
@@ -100,15 +93,10 @@ public class Dice {
 
 		}
 	}
-		
-	
 
-	public String toString()
-	{
+	public String toString() {
 		return "Roll of " + getLastRoll() + ": " + die1.getLastRoll() + " + " + die2.getLastRoll();
 
 	}
 
-
-	
 }

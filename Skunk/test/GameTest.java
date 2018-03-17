@@ -16,6 +16,5 @@ public class GameTest {
 		assertEquals(20, game.getTotalChips());
 		assertEquals(2, game.getNumberOfPlayers());
 	}
-	
 
 }

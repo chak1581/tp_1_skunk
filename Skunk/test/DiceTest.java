@@ -8,60 +8,71 @@ public class DiceTest {
 	int turn;
 	Die die1;
 	Die die2;
-	int[] values1 = new int[]{5,2,3,4,1,1};
-	int[] values2 = new int[]{6,5,1,3,2,1};
-	
-	
+	int[] values1 = new int[] { 5, 2, 3, 4, 1, 1 };
+	int[] values2 = new int[] { 6, 5, 1, 3, 2, 1 };
+
 	@Test
 	public void testRoll_case1() {
-		
-		turn = 4;		
-		die1 = new Die(values1);
-		die2 = new Die(values2);
-		dice = new Dice(die1,die2);
-		dice.roll(turn);	
+
+		turn = 4;
+		die1 = new Die(values1);// 4
+		die2 = new Die(values2);// 3
+		dice = new Dice(die1, die2);
+		dice.roll(turn);
 		assertEquals(7, dice.getLastRoll());
 	}
-	
+
 	@Test
 	public void testRoll_case2() {
-		
-		turn = 8;		
-		die1 = new Die(values1);
-		die2 = new Die(values2);
-		dice = new Dice(die1,die2);
-		dice.roll(turn);	
+
+		turn = 8;
+		die1 = new Die(values1);// 2
+		die2 = new Die(values2);// 5
+		dice = new Dice(die1, die2);
+		dice.roll(turn);
 		assertEquals(7, dice.getLastRoll());
 	}
 
 	@Test
 	public void testRoll_1skunk() {
-		
-		turn = 3;		
-		die1 = new Die(values1);
-		die2 = new Die(values2);
-		dice = new Dice(die1,die2);
-		dice.roll(turn);	
+
+		turn = 3;
+		die1 = new Die(values1);// 3
+		die2 = new Die(values2);// 1
+		dice = new Dice(die1, die2);
+		dice.roll(turn);
 		assertEquals(0, dice.getLastRoll());
 	}
+
 	@Test
 	public void testRoll_2skunk() {
-		
-		turn = 6;		
-		die1 = new Die(values1);
-		die2 = new Die(values2);
-		dice = new Dice(die1,die2);
-		dice.roll(turn);	
+
+		turn = 6;
+		die1 = new Die(values1);// 1
+		die2 = new Die(values2);// 1
+		dice = new Dice(die1, die2);
+		dice.roll(turn);
 		assertEquals(0, dice.getLastRoll());
 	}
+
 	@Test
 	public void testRoll_skunk_and_deuce() {
-		
-		turn = 5;		
+
+		turn = 5;
+		die1 = new Die(values1);// 1
+		die2 = new Die(values2);// 2
+		dice = new Dice(die1, die2);
+		dice.roll(turn);
+		assertEquals(0, dice.getLastRoll());
+	}
+
+	@Test(expected = RuntimeException.class)
+	public void testRoll_NoTurn() {
+		turn = 0;
 		die1 = new Die(values1);
 		die2 = new Die(values2);
-		dice = new Dice(die1,die2);
-		dice.roll(turn);	
+		dice = new Dice(die1, die2);
+		dice.roll(turn);
 		assertEquals(0, dice.getLastRoll());
 	}
 
