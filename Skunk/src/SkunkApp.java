@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 /**
  * 
- * @author Ipshita & Shanqi Skunk Game please see SkunkRules.docx for game rules
- *         and penalties
+ * @author Ipshita & Shanqi
+ * Skunk Game 
+ * Please see SkunkRules.docx for game rules
+ * and penalties
  * 
  */
 public class SkunkApp {
@@ -53,8 +55,8 @@ public class SkunkApp {
 						}
 						skunkDisplayRules(reader, skunkRules);
 
-						System.out.println("\nChips left in the Kitty : " + (400 - (50 * noOfPlayers)));
-						Game game = new Game((400 - (50 * noOfPlayers)), 400, noOfPlayers);
+						System.out.println("\nChips left in the Kitty : " + 0);
+						Game game = new Game(0, 400, noOfPlayers);
 
 						List<Round> rounds = new ArrayList();
 
@@ -137,6 +139,7 @@ public class SkunkApp {
 								round.setTurn(turn);
 								rounds.add(round);
 								noOfRound++;
+								skunkRules.displayScoreBoard(noOfPlayers, players, game);
 							}
 							if (!skunkRules.allPlayersScoreZero(players, noOfPlayers)) {
 								skunkRules.setPlayersRank(players, noOfPlayers);
@@ -149,6 +152,7 @@ public class SkunkApp {
 							for (int i = 0; i < noOfPlayers; i++) {
 								System.out.println(players[i].toString());
 							}
+							skunkRules.displaySummary(matches, game);
 
 							List<Player> newPlayersList = saveSummary(noOfPlayers, players);
 							Match match = new Match(gameNo, newPlayersList);
@@ -158,6 +162,7 @@ public class SkunkApp {
 						}
 						System.out.println("\n****Match Summary*****\n");
 						skunkRules.displaySummary(matches, game);
+						skunkRules.displayScoreBoard(noOfPlayers, players, game);
 						System.out.println("******************************End of Game******************************");
 						System.out.println("****************Thank you for playing Skunk Game***********************\n"
 								+ "********************************************Ipshita & Shanqi***********");
@@ -195,7 +200,7 @@ public class SkunkApp {
 		else
 			System.out.println("\nAll right!!! Let's begin");
 		System.out.println("Initializng...");
-		System.out.println("\nTotal chips in Kitty : 400");
+		//System.out.println("\nTotal chips in Kitty : 400");
 	}
 
 	private static List<Player> saveSummary(int noOfPlayers, Player[] players) {

@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class SkunkRules {
 		Arrays.sort(player);
 		for (int i = 0; i < noOfPlayers; i++) {
 			player[i].setRank(i);
-			;
+			
 
 		}
 	}
@@ -83,4 +84,43 @@ public class SkunkRules {
 
 		}
 	}
+	
+	
+	public   void displayScoreBoard(int noOfPlayers, Player[] player, Game game){
+		
+		StdDraw.setCanvasSize(600, 600);
+		int x = 0;
+		int y = noOfPlayers+4;
+		StdDraw.setScale(x, y);
+		StdDraw.setPenRadius(0.008);
+		StdDraw.setPenColor(Color.RED);
+		StdDraw.text(x+2, y-0.5, "Round Score Board");
+		StdDraw.setPenColor(Color.BLUE);
+		StdDraw.text(x+2, y-1.0, "Chips in Kitty:   " +game.chipsInKitty);
+		StdDraw.setPenColor(Color.BLACK);
+		 
+		 for (int c = 0; c <= 3; c++) {
+			 
+			
+	            StdDraw.line(c*2, 0, 2*c, noOfPlayers);
+	        }
+		 
+	        for (int c = 0; c < noOfPlayers; c++) {
+	        	 
+	        	  StdDraw.line(0, c+0.1, 6, c+0.1);
+	        		 
+	        		 StdDraw.text(1, (noOfPlayers+1)-0.5, "Player Name");
+	        		 StdDraw.text(3, (noOfPlayers+1)-0.5, "Score");
+	        		 StdDraw.text(5, (noOfPlayers+1)-0.5, "Chips"); 
+	        		 StdDraw.text(1, c+0.5, player[c].getName());
+		        	 StdDraw.text(3, c+0.5, ""+player[c].getScore());
+		        	 StdDraw.text(5, c+0.5, ""+player[c].getChip());
+ 
+	        }
+        StdDraw.show();
+		
+		
+	}
+	
+
 }

@@ -71,6 +71,8 @@ public class Turn {
 		} else {
 			score += dice.getLastRoll();
 		}
+		
+		System.out.println("Total Chips in Kitty:  "+game.getChipsInKitty());
 	}
 
 	public void play(Player player, Game game, int turn) {
